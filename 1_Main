@@ -1,0 +1,79 @@
+/**
+ *A game where you catch the falling apples in a basket.
+ *Variation of the horde game and the ddr game. 
+ *@version Jan 5, 2020
+ *@author Kyleigh Moffatt
+ */
+  
+RedApple [] redApple = new RedApple[100];
+GoldApple [] goldApple = new GoldApple[80];
+Basket basket;
+
+int rStack = -250;//determines the spacing inbetween the red apples in the array
+int gStack = -2000;//determines the spacing inbetween the gold apples in the array
+
+void setup()
+{
+  size(600, 700);
+  background(#287300);
+  imageMode(CENTER);
+  rectMode(CENTER);
+  
+  //initialize the basket
+  basket = new Basket(width/2, height/8*7);
+  
+  //initialize the red apples
+  for(int i = 0; i < redApple.length; i++)
+  {
+    redApple[i] = new RedApple(random(30, width-70), i*rStack);
+  }
+  
+  //initialize the gold apples
+  for(int i = 0; i < goldApple.length; i++)
+  {
+    goldApple[i] = new GoldApple(random(30, width-70), i*gStack);
+  }
+}
+
+void draw()
+{
+  background(#287300);
+  
+  //display and move the red apples
+  for(int i = 0; i < redApple.length; i++)
+  {
+    redApple[i].display();
+    redApple[i].move();
+  }
+  
+  //display and move the gold apples
+  for(int i = 0; i < goldApple.length; i++)
+  {
+    goldApple[i].display();
+    goldApple[i].move();
+  }
+  
+  //display and move the basket 
+  basket.display();
+  
+  basketMovement();
+}
+
+
+ /**
+  *controls what keys 
+  */
+void basketMovement()
+{
+  if(keyPressed)
+  {
+    if(keyCode == RIGHT)
+    {
+      basket.moveRight();
+    }
+    else if (keyCode == LEFT)
+    {
+      basket.moveLeft();
+    }
+  }
+}
