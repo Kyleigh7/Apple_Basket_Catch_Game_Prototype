@@ -1,0 +1,37 @@
+/**
+ *A class for the golden apples
+ */
+ 
+class GoldApple
+{
+  private float x, y;//for the position of the red apples
+  private float gY;//for the movement of the red apples
+  
+  //constanats
+  private final PImage goldAppleImg = loadImage("goldApple2.png");
+  
+  //constructor
+  public GoldApple(float x, float y)
+  {
+    this.x = x;
+    this.y = y;
+    
+    gY = 1.5; 
+  }
+  
+  /**
+   *displys the gold apples
+   */
+  public void display()
+  {
+    image(goldAppleImg, x, y);
+  }
+  
+  /**
+   *moves the gold apples
+   */
+  public void move()
+  {
+    y += gY;
+  } 
+}
