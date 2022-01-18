@@ -1,0 +1,48 @@
+/**
+ *A class for the basket
+ */
+ 
+class Basket
+{
+  private float x, y;//for the position of the basket
+  private float bX;//for the movement of the basket 
+  
+  //constants
+  private final PImage basketImg = loadImage("wickerBasket3.png");
+  
+  public Basket(float x, float y)
+  {
+    this.x = x;
+    this.y = y; 
+    
+    bX = 3;
+  }
+  
+  /**
+   *displys the basket
+   */
+  public void display()
+  {
+    noStroke();
+    fill(#287300);
+    rect(x, y+70, 300, 45);
+    
+    image(basketImg, x, y);
+  }
+  
+  /**
+   *moves the basket to the right
+   */
+  public void moveRight()
+  {
+    x += 3;
+  }
+  
+  /**
+   *moves the basket to the left
+   */
+  public void moveLeft()
+  {
+    x -= 3;
+  }
+}
